@@ -1,0 +1,28 @@
+type Query {
+  hello(name: String!): String!
+  users(_id: String): [User]!
+  courses(_id: String): [Course]!
+}
+
+type User {
+  id: ID!
+  name: String!
+  last_name: String
+}
+
+type Course {
+  id: ID
+  name: String
+  last_name: String
+  created_by: User!
+}
+
+type Mutation {
+  newUser(data: userInput): User!
+}
+
+input userInput {
+  id: ID
+  name: String
+  last_name: String
+}
